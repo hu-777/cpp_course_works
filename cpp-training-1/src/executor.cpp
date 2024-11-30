@@ -35,41 +35,11 @@ void Executor::move()
 
 void Executor::turnLeft()
 {
-    switch (heading) {
-    case N:
-        heading = W;
-        break;
-    case S:
-        heading = E;
-        break;
-    case W:
-        heading = S;
-        break;
-    case E:
-        heading = N;
-        break;
-    default:
-        break;
-    }
+    heading = static_cast<Heading>((heading +3) % 4);
 }
 void Executor::turnRight()
 {
-    switch (heading) {
-    case N:
-        heading = E;
-        break;
-    case S:
-        heading = W;
-        break;
-    case W:
-        heading = N;
-        break;
-    case E:
-        heading = S;
-        break;
-    default:
-        break;
-    }
+    heading = static_cast<Heading>((heading + 1) % 4);
 }
 void Executor::executeCommands(const string &commands)
 {
