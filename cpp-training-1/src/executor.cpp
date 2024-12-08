@@ -1,4 +1,4 @@
-#include "executor.h"
+#include "Executor.h"
 
 Executor::Executor()
 {
@@ -37,10 +37,12 @@ void Executor::turnLeft()
 {
     heading = static_cast<Heading>((heading +3) % 4);
 }
+
 void Executor::turnRight()
 {
     heading = static_cast<Heading>((heading + 1) % 4);
 }
+
 void Executor::executeCommands(const string &commands)
 {
     for (char command : commands) {

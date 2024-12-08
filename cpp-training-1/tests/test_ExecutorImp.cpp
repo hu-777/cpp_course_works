@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "ExecutorImp.h"
+#include "ICommand.h"
 
 // 测试构造函数，默认（0，0，N）
 TEST(ExecutorImpTest, Initialization)
@@ -83,17 +84,17 @@ TEST(ExecutorImpTest, FastMode)
     EXPECT_EQ(heading, N);
 }
 
-// 测试执行函数
-TEST(ExecutorImpTest, Execute)
+//
+TEST(ExecutorImpTest,1)
 {
     ExecutorImp executor;
+    MoveCommand move;
     int x,y;
     Heading heading;
-    executor.init(0, 0, N);
-    executor.Execute("FMLMLMRFM");
-    executor.getPosition(x, y, heading);
-    EXPECT_EQ(x, -4);
-    EXPECT_EQ(y, 0);
-    EXPECT_EQ(heading, W);
+    move.DoOperate(executor);
+    executor.getPosition(x,y,heading);
+    EXPECT_EQ(x,0);
+    EXPECT_EQ(y,1);
+    EXPECT_EQ(heading,N);
 }
 

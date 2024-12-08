@@ -71,8 +71,3 @@ TEST(ExecutorTest, ExecuteCommandsFunction) {
     EXPECT_EQ(y, 2);
     EXPECT_EQ(heading, N);
 }
-
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}

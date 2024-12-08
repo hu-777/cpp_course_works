@@ -63,6 +63,7 @@ void ExecutorImp::turnLeft()
     }
     pose.heading = static_cast<Heading>((pose.heading + 3) % 4);
 }
+
 void ExecutorImp::turnRight()
 {
     if (fast) 
@@ -84,28 +85,29 @@ bool ExecutorImp::isFast()
 
 void ExecutorImp::Execute(const string& commands)
 {
-    for(const auto& cmd:commands)
+    for(const auto& cmd : commands)
     {
-        unique_ptr<ICommand> pcmd=nullptr;
+        unique_ptr<ICommand> pcmd = nullptr;
         switch(cmd)
         {
             case 'M':
-                pcmd=make_unique<MoveCommand>();
+                pcmd = make_unique<MoveCommand>();
                 break;
             case 'L':
-                pcmd=make_unique<TurnLeftCommand>();
+                pcmd = make_unique<TurnLeftCommand>();
                 break;
             case 'R':
-                pcmd=make_unique<TurnRightCommand>();
+                pcmd = make_unique<TurnRightCommand>();
                 break;
             case 'F':
-                pcmd=make_unique<FastCommand>();
+                pcmd = make_unique<FastCommand>();
                 break;
             default:
                 break;
         }
         if(pcmd)
         {
+            std::cout << "Executing command: " << cmd << std::endl;
             pcmd->DoOperate(*this);
         }
     }
