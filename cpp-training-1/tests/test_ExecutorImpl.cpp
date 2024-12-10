@@ -1,8 +1,6 @@
 #include <gtest/gtest.h>
 
 #include "ExecutorImpl.h"
-#include "PoseHandler.h"
-#include "Command.h"
 using namespace adas;
 
 TEST(ExecutorImplTest, 1)

@@ -1,19 +1,20 @@
 #ifndef EXECUTORIMPI_H
 #define EXECUTORIMPI_H
 
-#include "PoseHandler.h"
+#include "Command.h"
 #include "Executor.h"
+#include "PoseHandler.h"
 using namespace adas;
 
-class ExecutorImpl final:public Executor
+class ExecutorImpl :public Executor
 {
-    private:
+    protected:
         PoseHandler poseHandler;
     public:
         ExecutorImpl()noexcept{}
         ExecutorImpl(const Pose& pose)noexcept:poseHandler(pose){}
         ~ExecutorImpl() override{}
-        void Execute(const string& commands);
+        virtual void Execute(const string& commands);
         Pose Query() const noexcept;
 };
 

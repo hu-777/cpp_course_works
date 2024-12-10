@@ -1,7 +1,7 @@
 #include "ExecutorImpl.h"
-#include "Command.h"
-#include<memory>
-#include<unordered_map>
+#include <memory>
+#include <unordered_map>
+
 using namespace std;
 
 void ExecutorImpl::Execute(const string& commands)
